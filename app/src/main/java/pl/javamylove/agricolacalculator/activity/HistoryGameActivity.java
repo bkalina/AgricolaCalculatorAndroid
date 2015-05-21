@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 import pl.javamylove.agricolacalculator.R;
 
 public class HistoryGameActivity extends Activity {
@@ -18,8 +20,8 @@ public class HistoryGameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_game);
 
-        // Powrót
-        Button backButton = (Button) findViewById(R.id.back_button);
+        // Powrot
+        BootstrapButton backButton = (BootstrapButton) findViewById(R.id.back_button);
         final Intent historyActivityIntent = new Intent(this, HistoryActivity.class);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

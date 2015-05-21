@@ -1,31 +1,117 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ff000000"
+    android:nestedScrollingEnabled="true"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="pl.javamylove.agricolacalculator.activity.NewGameActivity"
-    android:background="#ff000000">
+    tools:context="pl.javamylove.agricolacalculator.activity.NewGameActivity">
 
-    <Button
-        android:id="@+id/player_button"
-        android:layout_width="wrap_content"
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/game_name_text_edit"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Gracz 1"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/save_game_button"
-        android:layout_alignStart="@+id/save_game_button" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:hint=""
+        android:layout_marginTop="20dp"
+        bootstrap:be_roundedCorners="true"
+        android:autoText="false" />
 
-    <Button
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/player1_button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:text="Gracz 1"
+                bootstrap:bb_roundedCorners="true"
+                bootstrap:bb_type="primary" />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/player2_button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/player1_button"
+                android:layout_alignStart="@+id/player1_button"
+                android:layout_below="@+id/player1_button"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="15dp"
+                android:text="Gracz 2"
+                bootstrap:bb_roundedCorners="true"
+                bootstrap:bb_type="primary" />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/player3_button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/player2_button"
+                android:layout_alignStart="@+id/player2_button"
+                android:layout_below="@+id/player2_button"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="15dp"
+                android:text="Gracz 3"
+                bootstrap:bb_roundedCorners="true"
+                bootstrap:bb_type="primary" />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/player4_button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/player3_button"
+                android:layout_alignStart="@+id/player3_button"
+                android:layout_below="@+id/player3_button"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="15dp"
+                android:text="Gracz 4"
+                bootstrap:bb_roundedCorners="true"
+                bootstrap:bb_type="primary" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/save_game_button"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Zapisz"
+        android:text="@string/save"
+        bootstrap:bb_roundedCorners="true"
+        bootstrap:bb_type="success"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/cancel_button"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/cancel"
+        bootstrap:bb_roundedCorners="true"
+        bootstrap:bb_type="danger"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

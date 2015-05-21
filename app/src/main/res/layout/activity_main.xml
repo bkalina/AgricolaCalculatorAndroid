@@ -1,8 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff000000"
+    android:background="@android:color/background_dark"
     android:longClickable="true"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -14,27 +17,41 @@
         android:id="@+id/logo_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/new_game_button"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_agri" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/new_game_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Nowa gra"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/history_button"
-        android:layout_alignStart="@+id/history_button" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/new_game"
+        bootstrap:bb_roundedCorners="true"
+        bootstrap:bb_type="primary" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/history_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_game_button"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="15dp"
+        android:text="@string/history"
+        bootstrap:bb_roundedCorners="true"
+        bootstrap:bb_type="primary" />
+
+    <com.beardedhen.androidbootstrap.FontAwesomeText
+        android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Historia"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/new_game_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/bbutton_warning"
+        android:textSize="32sp"
+        fontawesometext:fa_icon="fa-cog" />
 
 </RelativeLayout>

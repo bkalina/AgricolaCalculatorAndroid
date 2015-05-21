@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 import pl.javamylove.agricolacalculator.R;
 
 public class PlayerActivity extends Activity {
@@ -19,7 +21,7 @@ public class PlayerActivity extends Activity {
         setContentView(R.layout.activity_player);
 
         // Zapis gracza
-        Button savePlayerButton = (Button) findViewById(R.id.save_player_button);
+        BootstrapButton savePlayerButton = (BootstrapButton) findViewById(R.id.save_player_button);
         final Intent newGameActivityIntent = new Intent(this, NewGameActivity.class);
         savePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
