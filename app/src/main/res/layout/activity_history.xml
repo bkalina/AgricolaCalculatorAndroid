@@ -10,24 +10,45 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pl.javamylove.agricolacalculator.activity.HistoryActivity">
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/back"
-        bootstrap:bb_roundedCorners="true"
-        bootstrap:bb_type="warning"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="false"
+        android:fillViewport="true">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gamesList"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/back_button"
-        android:choiceMode="singleChoice" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ListView
+                android:id="@+id/gamesList"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:choiceMode="singleChoice" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/gamesList"
+                android:layout_marginTop="343dp">
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/back"
+                    bootstrap:bb_roundedCorners="true"
+                    bootstrap:bb_type="warning" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

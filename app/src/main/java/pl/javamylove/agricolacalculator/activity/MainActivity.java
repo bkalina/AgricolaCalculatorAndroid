@@ -24,7 +24,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        layout = (RelativeLayout)findViewById(R.id.main_activity_layout);
+        layout = (RelativeLayout) findViewById(R.id.main_activity_layout);
+
         // Nowa gra
         BootstrapButton newGameButton = (BootstrapButton) findViewById(R.id.new_game_button);
         final Intent newGameActivityIntent = new Intent(this, NewGameActivity.class);

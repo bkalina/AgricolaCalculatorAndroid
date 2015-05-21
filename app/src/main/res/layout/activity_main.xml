@@ -28,6 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
+        android:paddingTop="20dp"
         android:text="@string/new_game"
         bootstrap:bb_roundedCorners="true"
         bootstrap:bb_type="primary" />
@@ -39,7 +40,7 @@
         android:layout_below="@+id/new_game_button"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="15dp"
+        android:paddingTop="20dp"
         android:text="@string/history"
         bootstrap:bb_roundedCorners="true"
         bootstrap:bb_type="primary" />

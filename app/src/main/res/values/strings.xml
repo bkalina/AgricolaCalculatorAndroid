@@ -19,5 +19,12 @@
     <string name="white_color">Biały</string>
     <string name="green_color">Zielony</string>
     <string name="background_color_change">Kolor tła został zmieniony</string>
+    <string name="player_name">Imię gracza</string>
+    <string name="fields_label">Pola</string>
+    <string name="pastures_label">Pastwiska</string>
+    <string name="grain_label">Zboże</string>
+    <string name="vegetables_label">Warzywa</string>
+    <string name="game_name">Nazwa rozgrywki</string>
+    <string name="saved">Zapisano</string>
 
 </resources>
