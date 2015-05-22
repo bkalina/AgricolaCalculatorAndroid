@@ -1,6 +1,7 @@
 package pl.javamylove.agricolacalculator.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,14 +9,16 @@ import java.util.List;
  */
 public class Player implements Serializable {
 
+    private int active = 0;
     private String name;
     private int score;
-    private List<Integer> pointsList;
 
     private int fields = -1;
     private int pasures = -1;
     private int grain = -1;
     private int vegetables = -1;
+
+    private List<Integer> pointsList = Arrays.asList(fields, pasures, grain, vegetables);
 
     public Player() {
     }
@@ -28,6 +31,14 @@ public class Player implements Serializable {
         this.name = name;
         this.score = score;
         this.pointsList = pointsList;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
     }
 
     public String getName() {
@@ -84,5 +95,19 @@ public class Player implements Serializable {
 
     public void setVegetables(int vegetables) {
         this.vegetables = vegetables;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "active=" + active +
+                ", name='" + name + '\'' +
+                ", score=" + score +
+                ", fields=" + fields +
+                ", pasures=" + pasures +
+                ", grain=" + grain +
+                ", vegetables=" + vegetables +
+                ", pointsList=" + pointsList +
+                '}';
     }
 }

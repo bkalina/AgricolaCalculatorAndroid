@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Game implements Serializable {
 
+    private String id;
     private String name;
     private String date;
     private List<Player> playersList;
@@ -15,15 +16,19 @@ public class Game implements Serializable {
     public Game() {
     }
 
-    public Game(String name, String date) {
-        this.name = name;
-        this.date = date;
-    }
-
-    public Game(String name, String date, List<Player> playersList) {
+    public Game(String id, String name, String date, List<Player> playersList) {
+        this.id = id;
         this.name = name;
         this.date = date;
         this.playersList = playersList;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -50,4 +55,13 @@ public class Game implements Serializable {
         this.playersList = playersList;
     }
 
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", date='" + date + '\'' +
+                ", playersList=" + playersList +
+                '}';
+    }
 }

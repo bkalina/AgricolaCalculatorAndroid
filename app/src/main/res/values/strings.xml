@@ -26,5 +26,7 @@
     <string name="vegetables_label">Warzywa</string>
     <string name="game_name">Nazwa rozgrywki</string>
     <string name="saved">Zapisano</string>
+    <string name="player_name_valid">Podaj imię gracza</string>
+    <string name="game_name_valid">Podaj nazwé rozgrywki</string>
 
 </resources>
