@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -31,6 +32,9 @@ public class PlayerActivity extends Activity implements RadioGroup.OnCheckedChan
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.player_activity_layout);
+        layout.setBackgroundColor(MainActivity.getBackgroundColor());
 
         // Nazwa gracza
         playerNameEdit = (BootstrapEditText) findViewById(R.id.player_name_text_edit);

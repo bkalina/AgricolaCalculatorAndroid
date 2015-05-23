@@ -8,17 +8,32 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
+import org.w3c.dom.Text;
+
 import pl.javamylove.agricolacalculator.R;
+import pl.javamylove.agricolacalculator.model.Game;
 
 public class HistoryGameActivity extends Activity {
+
+    private static Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_game);
+
+        // Kolor tla
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.history_game_activity_layout);
+        layout.setBackgroundColor(MainActivity.getBackgroundColor());
+
+        // Opis gry
+        TextView gameTitle = (TextView) findViewById(R.id.gameTitle);
+        gameTitle.setText("Rozgrywka: " + game.getName() + " z dnia " + game.getDate());
 
         // Powrot
         BootstrapButton backButton = (BootstrapButton) findViewById(R.id.back_button);
@@ -31,4 +46,11 @@ public class HistoryGameActivity extends Activity {
         });
     }
 
+    public static Game getGame() {
+        return game;
+    }
+
+    public static void setGame(Game game) {
+        HistoryGameActivity.game = game;
+    }
 }

@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff000000"
@@ -15,7 +16,6 @@
         android:id="@+id/scrollView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentEnd="false"
         android:fillViewport="false">
 
 
@@ -47,7 +47,7 @@
                 android:layout_marginTop="38dp"
                 android:text="@string/fields_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffffff" />
+                android:textColor="#ff33b5e5" />
 
             <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/fields"
@@ -110,7 +110,7 @@
                 android:layout_marginTop="18dp"
                 android:text="@string/pastures_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffffff" />
+                android:textColor="#ff33b5e5" />
 
             <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/pastures"
@@ -176,7 +176,7 @@
                 android:layout_marginTop="18dp"
                 android:text="@string/grain_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffffff" />
+                android:textColor="#ff33b5e5" />
 
             <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/grain"
@@ -242,7 +242,7 @@
                 android:layout_marginTop="18dp"
                 android:text="@string/vegetables_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffffff" />
+                android:textColor="#ff33b5e5" />
 
             <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/vegetables"

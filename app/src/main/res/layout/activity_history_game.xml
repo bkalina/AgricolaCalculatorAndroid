@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/history_game_activity_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff000000"
@@ -14,11 +15,30 @@
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:text="@string/back"
         bootstrap:bb_roundedCorners="true"
-        bootstrap:bb_type="warning"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        bootstrap:bb_type="warning" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="pl.javamylove.agricolacalculator.activity.HistoryGameFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/back_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/gameTitle" />
+
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff33b5e5" />
 
 </RelativeLayout>

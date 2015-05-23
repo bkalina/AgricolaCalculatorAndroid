@@ -17,7 +17,6 @@
     <string name="background_color">Wybierz kolor tła</string>
     <string name="black_color">Czarny</string>
     <string name="white_color">Biały</string>
-    <string name="green_color">Zielony</string>
     <string name="background_color_change">Kolor tła został zmieniony</string>
     <string name="player_name">Imię gracza</string>
     <string name="fields_label">Pola</string>
@@ -27,6 +26,6 @@
     <string name="game_name">Nazwa rozgrywki</string>
     <string name="saved">Zapisano</string>
     <string name="player_name_valid">Podaj imię gracza</string>
-    <string name="game_name_valid">Podaj nazwé rozgrywki</string>
+    <string name="game_name_valid">Podaj nazwę rozgrywki</string>
 
 </resources>

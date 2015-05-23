@@ -1,18 +1,22 @@
 package pl.javamylove.agricolacalculator.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,8 +39,13 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
-        // Utworzenie nowych graczy jesli to nowa gra
-        if (PlayerActivity.getPlayer() == null) setupPlayers();
+        // Kolor tla
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.new_game_activity_layout);
+        layout.setBackgroundColor(MainActivity.getBackgroundColor());
+
+        // Utworzenie gry i nowych graczy jesli to nowa gra
+        if (PlayerActivity.getPlayer() == null) setupGame();
+
         // Update GUI
         setupPlayersGUI();
         gameNameEdit = (BootstrapEditText) findViewById(R.id.game_name_text_edit);
@@ -57,6 +66,7 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PlayerActivity.setPlayer(null);
                 startActivity(mainActivityIntent);
             }
         });
@@ -78,23 +88,35 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
         });
     }
 
+    /**
+     * Zapisanie rozgrywki
+     */
     private void saveGame() {
         List<Player> temp = new ArrayList<Player>();
         for (Player player : playersList) {
             if (player.getActive() == 1)
                 temp.add(player);
         }
-        game = new Game(UUID.randomUUID().toString(), gameNameEdit.getText().toString(), new Date().toLocaleString(), temp);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyy");
+        game = new Game(UUID.randomUUID().toString(), gameNameEdit.getText().toString(), formatter.format(new Date()), temp);
         PlayerActivity.setPlayer(null);
+        MainActivity.getDb().add(game);
     }
 
-    private void setupPlayers() {
+    /**
+     * Utworzenie nowej rozgrywki
+     */
+    private void setupGame() {
+        game = new Game();
         player1 = new Player("Gracz 1");
         player2 = new Player("Gracz 2");
         player3 = new Player("Gracz 3");
         player4 = new Player("Gracz 4");
     }
 
+    /**
+     * Update GUI zgodnie z modelem
+     */
     private void setupPlayersGUI() {
         BootstrapButton b = null;
         b = (BootstrapButton) findViewById(R.id.player1_button);
