@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,25 +15,34 @@ import android.widget.Toast;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.FontAwesomeText;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
 import pl.javamylove.agricolacalculator.R;
-import pl.javamylove.agricolacalculator.model.Game;
+import pl.javamylove.agricolacalculator.dao.GameDAO;
 
 
+/**
+ * Activity z menu glownym
+ */
 public class MainActivity extends Activity {
 
     private RelativeLayout layout;
     private static int backgroundColor = Color.BLACK;
     private SharedPreferences prefs;
-
-    private static List<Game> db = new ArrayList<Game>();
+    private static GameDAO gameDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Polaczenie z DB
+        gameDAO = new GameDAO(this);
+        try {
+            gameDAO.open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         // Prefs
         prefs = this.getSharedPreferences(
@@ -110,11 +118,11 @@ public class MainActivity extends Activity {
         MainActivity.backgroundColor = backgroundColor;
     }
 
-    public static List<Game> getDb() {
-        return db;
+    public static GameDAO getGameDAO() {
+        return gameDAO;
     }
 
-    public static void setDb(List<Game> db) {
-        MainActivity.db = db;
+    public static void setGameDAO(GameDAO gameDAO) {
+        MainActivity.gameDAO = gameDAO;
     }
 }

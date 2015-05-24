@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Klasa gracza
  * Created by Bartosz Kalina on 21-05-2015.
  */
 public class Player implements Serializable {
@@ -31,6 +32,17 @@ public class Player implements Serializable {
         this.name = name;
         this.score = score;
         this.pointsList = pointsList;
+    }
+
+    public Player(String name, int score, int fields, int pasures, int grain, int vegetables, int active) {
+        this.name = name;
+        this.score = score;
+        this.fields = fields;
+        this.pasures = pasures;
+        this.grain = grain;
+        this.vegetables = vegetables;
+        this.active = active;
+        this.pointsList = Arrays.asList(fields, pasures, grain, vegetables);
     }
 
     public int getActive() {

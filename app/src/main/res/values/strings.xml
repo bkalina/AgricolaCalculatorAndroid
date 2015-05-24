@@ -27,5 +27,9 @@
     <string name="saved">Zapisano</string>
     <string name="player_name_valid">Podaj imię gracza</string>
     <string name="game_name_valid">Podaj nazwę rozgrywki</string>
+    <string name="fieldNo">"Liczba pól: "</string>
+    <string name="pastureNo">"Liczba pastwisk: "</string>
+    <string name="grainNo">"Liczba nasion: "</string>
+    <string name="vegetablesNo">"Liczba warzyw: "</string>
 
 </resources>

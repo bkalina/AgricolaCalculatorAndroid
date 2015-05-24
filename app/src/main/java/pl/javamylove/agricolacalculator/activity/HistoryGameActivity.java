@@ -2,22 +2,19 @@ package pl.javamylove.agricolacalculator.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
-import org.w3c.dom.Text;
-
 import pl.javamylove.agricolacalculator.R;
 import pl.javamylove.agricolacalculator.model.Game;
 
+/**
+ * Activity pod prezentacje konkretnej rozgrywki po wybraniu z listy rozgrywek
+ */
 public class HistoryGameActivity extends Activity {
 
     private static Game game;
@@ -33,7 +30,7 @@ public class HistoryGameActivity extends Activity {
 
         // Opis gry
         TextView gameTitle = (TextView) findViewById(R.id.gameTitle);
-        gameTitle.setText("Rozgrywka: " + game.getName() + " z dnia " + game.getDate());
+        gameTitle.setText("Rozgrywka: " + game.getName() + "\nz dnia " + game.getDate());
 
         // Powrot
         BootstrapButton backButton = (BootstrapButton) findViewById(R.id.back_button);

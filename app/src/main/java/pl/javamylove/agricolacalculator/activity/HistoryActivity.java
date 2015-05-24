@@ -2,12 +2,8 @@ package pl.javamylove.agricolacalculator.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -15,6 +11,9 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 
 import pl.javamylove.agricolacalculator.R;
 
+/**
+ * Activity pod prezentacje listy rozgrywek
+ */
 public class HistoryActivity extends Activity {
 
     @Override

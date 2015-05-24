@@ -20,6 +20,9 @@ import info.hoang8f.android.segmented.SegmentedGroup;
 import pl.javamylove.agricolacalculator.R;
 import pl.javamylove.agricolacalculator.model.Player;
 
+/**
+ * Activity pod naliczanie punktacji dla graczy
+ */
 public class PlayerActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
 
     private static Player player;
@@ -65,9 +68,10 @@ public class PlayerActivity extends Activity implements RadioGroup.OnCheckedChan
         grainTemp = player.getPointsList().get(2);
         vegetablesTemp = player.getPointsList().get(3);
         int pointsIterator = 0;
-        for(List<RadioButton> list : lists) {
-            for(RadioButton btn : list) {
-                if(btn.getTag().toString().equals(player.getPointsList().get(pointsIterator).toString())) btn.setChecked(true);
+        for (List<RadioButton> list : lists) {
+            for (RadioButton btn : list) {
+                if (btn.getTag().toString().equals(player.getPointsList().get(pointsIterator).toString()))
+                    btn.setChecked(true);
                 else btn.setChecked(false);
             }
             pointsIterator++;
@@ -88,11 +92,10 @@ public class PlayerActivity extends Activity implements RadioGroup.OnCheckedChan
         savePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (playerNameEdit.getText().toString().equals(null) || playerNameEdit.getText().toString().equals("")) {
+                if (playerNameEdit.getText().toString() == null || playerNameEdit.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), getString(R.string.player_name_valid), Toast.LENGTH_SHORT).show();
                 } else {
                     savePlayerData(playerNameEdit.getText().toString(), fieldsTemp, pasturesTemp, grainTemp, vegetablesTemp);
-                    System.out.println(player);
                     Toast.makeText(getApplicationContext(), getString(R.string.saved), Toast.LENGTH_SHORT).show();
                     startActivity(newGameActivityIntent);
                 }
@@ -121,6 +124,14 @@ public class PlayerActivity extends Activity implements RadioGroup.OnCheckedChan
         PlayerActivity.player = player;
     }
 
+    /**
+     * Metoda zapisujaca informacje z formularza do obiekty Player
+     * @param name imie gracza
+     * @param fields liczba pol
+     * @param pastures liczba pastwisk
+     * @param grain liczba ziaren
+     * @param vegetables liczba warzyw
+     */
     private void savePlayerData(String name, int fields, int pastures, int grain, int vegetables) {
         player.setActive(1);
         player.setName(name);
@@ -129,7 +140,7 @@ public class PlayerActivity extends Activity implements RadioGroup.OnCheckedChan
         player.setGrain(grain);
         player.setVegetables(vegetables);
 
-        List<Integer> points = new ArrayList<Integer>();
+        List<Integer> points = new ArrayList<>();
         points.add(fields);
         points.add(pastures);
         points.add(grain);

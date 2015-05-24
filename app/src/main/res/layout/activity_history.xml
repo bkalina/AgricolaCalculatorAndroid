@@ -11,60 +11,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pl.javamylove.agricolacalculator.activity.HistoryActivity">
 
-    <ScrollView
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/back"
+        bootstrap:bb_roundedCorners="true"
+        bootstrap:bb_type="warning" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="pl.javamylove.agricolacalculator.activity.GameListFragment"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentBottom="false"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/listTitle"
+        android:layout_above="@+id/back_button" />
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/listTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff33b5e5" />
 
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="false"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="430dp">
-
-                <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:id="@+id/back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/back"
-                    bootstrap:bb_roundedCorners="true"
-                    bootstrap:bb_type="warning" />
-            </RelativeLayout>
-
-            <fragment
-                android:id="@+id/fragment"
-                android:name="pl.javamylove.agricolacalculator.activity.GameListFragment"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/relativeLayout"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/listTitle"
-                android:layout_marginBottom="49dp" />
-
-            <TextView
-                android:id="@+id/listTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ff33b5e5" />
-
-
-        </RelativeLayout>
-    </ScrollView>
 
 </RelativeLayout>

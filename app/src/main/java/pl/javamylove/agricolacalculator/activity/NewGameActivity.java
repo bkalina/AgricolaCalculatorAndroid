@@ -1,15 +1,9 @@
 package pl.javamylove.agricolacalculator.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -26,6 +20,9 @@ import pl.javamylove.agricolacalculator.R;
 import pl.javamylove.agricolacalculator.model.Game;
 import pl.javamylove.agricolacalculator.model.Player;
 
+/**
+ * Activity pod dodawanie nowej rozgrywki
+ */
 public class NewGameActivity extends Activity implements View.OnClickListener {
 
     private String id;
@@ -80,7 +77,6 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
                     Toast.makeText(getApplicationContext(), getString(R.string.game_name_valid), Toast.LENGTH_SHORT).show();
                 } else {
                     saveGame();
-                    System.out.println(game);
                     Toast.makeText(getApplicationContext(), getString(R.string.saved), Toast.LENGTH_SHORT).show();
                     startActivity(mainActivityIntent);
                 }
@@ -92,7 +88,8 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
      * Zapisanie rozgrywki
      */
     private void saveGame() {
-        List<Player> temp = new ArrayList<Player>();
+        // Utworzenie gry
+        List<Player> temp = new ArrayList<>();
         for (Player player : playersList) {
             if (player.getActive() == 1)
                 temp.add(player);
@@ -100,7 +97,8 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyy");
         game = new Game(UUID.randomUUID().toString(), gameNameEdit.getText().toString(), formatter.format(new Date()), temp);
         PlayerActivity.setPlayer(null);
-        MainActivity.getDb().add(game);
+        // Zapis gry
+        MainActivity.getGameDAO().createGame(game);
     }
 
     /**
@@ -118,7 +116,7 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
      * Update GUI zgodnie z modelem
      */
     private void setupPlayersGUI() {
-        BootstrapButton b = null;
+        BootstrapButton b;
         b = (BootstrapButton) findViewById(R.id.player1_button);
         b.setText(player1.getName() + "  :  " + player1.getScore() + "pkt");
         b = (BootstrapButton) findViewById(R.id.player2_button);
@@ -127,7 +125,7 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
         b.setText(player3.getName() + "  :  " + player3.getScore() + "pkt");
         b = (BootstrapButton) findViewById(R.id.player4_button);
         b.setText(player4.getName() + "  :  " + player4.getScore() + "pkt");
-        playersList = new ArrayList<Player>();
+        playersList = new ArrayList<>();
         playersList.add(player1);
         playersList.add(player2);
         playersList.add(player3);
@@ -153,4 +151,5 @@ public class NewGameActivity extends Activity implements View.OnClickListener {
         }
         startActivity(playerActvityIntent);
     }
+
 }

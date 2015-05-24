@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * Klasa rozgrywki
  * Created by Bartosz Kalina on 2015-05-18.
  */
 public class Game implements Serializable {
